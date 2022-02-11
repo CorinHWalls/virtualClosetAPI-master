@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a39cad74-d704-406a-9fae-8a6ae77b2392/resourceGroups/appsvc_windows_centralus2/providers/Microsoft.Web/sites/virtualClosetAPI",
+    "appService.deploySubpath": "publish"
+}
