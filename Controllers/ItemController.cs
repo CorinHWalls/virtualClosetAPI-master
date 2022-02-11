@@ -32,7 +32,7 @@ namespace virtualClosetAPI.Controllers
             return data.RemoveItem(itemToDelete);
         }
 
-        //Edit items - Needs testing 
+        //Edit items - WORKS
         [HttpPost("UpdateItemById")]
         
         public bool UpdateItemById(ItemModel updatedItem)
