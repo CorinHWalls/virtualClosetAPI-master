@@ -16,6 +16,8 @@ namespace virtualClosetAPI.Services
         {
             _context = dataFromContext;
         }
+
+        //Add Item - WORKS
         public bool AddItem(ItemModel itemToAdd)
         {
             _context.Add(itemToAdd);
@@ -25,23 +27,12 @@ namespace virtualClosetAPI.Services
         //Delete Item by Id - WORKS
         public bool RemoveItem(ItemModel itemToDelete)
         {
-            // find data
-            // var data = _context.ItemInfo.FirstOrDefault(item => item.Id == id);
-
-            // if(data != null) {
-            //     _context.ItemInfo.Remove(data);
-            //     _context.SaveChanges();
-            //     return _context.SaveChanges() != null;
-            // }
-            // else{
-            //     return false;
-            // }
            _context.Remove(itemToDelete);
            return _context.SaveChanges() != null;
            
         }
 
-        //Update Item by Id 
+        //Update Item by Id - WORKS
          public bool UpdateItemById(ItemModel updatedItem)
         {
             
@@ -51,19 +42,23 @@ namespace virtualClosetAPI.Services
 
         }
 
-        public IEnumerable<ItemModel> GetItemsByCategory(string category)
-        {
-            return _context.ItemInfo.Where(item => item.Category == category);
-        }
-
-        public IEnumerable<ItemModel> GetItemsBySeason(string season)
-        {
-            return _context.ItemInfo.Where(item => item.Season == season);
-        }
-
+        // get / display all items by userId - WORKS
         public IEnumerable<ItemModel> GetItemsByUserId(int userId)
         {
             return _context.ItemInfo.Where(item => item.UserId == userId);
         }
+
+        //Get items by category/userId - WORKS
+        public IEnumerable<ItemModel> GetItemsByCategory(string category, int userId)
+        {
+            return _context.ItemInfo.Where(item => item.Category == category && item.UserId == userId);
+        }
+        //Get items by Season/UserId - WORKS
+        public IEnumerable<ItemModel> GetItemsBySeason(string season, int userId)
+        {
+            return _context.ItemInfo.Where(item => item.Season == season && item.UserId == userId);
+        }
+
+        
     }
 }

@@ -22,22 +22,29 @@ namespace virtualClosetApi.Services
             _context = dataFromContext;
         }
 
+
         public IEnumerable<UserModel> GetAllUsers()
         {
             return _context.UserInfo;
         }
 
-        //Checks if user exists
+        //Checks if user exists - WORKS
         public bool DoesUserExist(string? Username)
         {
             return _context.UserInfo.SingleOrDefault(user => user.Username.ToLower() == Username.ToLower()) != null;
         }
 
-        //Returns username
+        //Returns username - WORKS
         public UserModel GetUserByUsername(string Username)
         {
-            return _context.UserInfo.SingleOrDefault(user => user.Username.ToLower() == Username.ToLower());
+            return _context.UserInfo.SingleOrDefault(user => user.Username.ToLower() == Username.ToLower() );
         }
+
+        public IEnumerable<UserModel> GetCurrentUser (UserModel currentUser)
+        {
+            return _context.UserInfo.Where(user => user.Username == currentUser.Username);
+        }
+
 
         public bool AddUser(CreateAccountModel User)
         {

@@ -40,29 +40,27 @@ namespace virtualClosetAPI.Controllers
             return data.UpdateItemById(updatedItem);
         }
 
-        //Get items by userId - needs testing
-        [HttpPost("GetItemsByUserId")]
+        //Get items by userId - WORKS
+        [HttpGet("GetItemsByUserId/{userId}")]
         public IEnumerable<ItemModel> GetItemsByUserId(int userId)
         {
             return data.GetItemsByUserId(userId);
         }
 
-        //Sort by Category - Needs testing
-        [HttpGet("GetItemsByCategory/{category}")]
+        //Sort by Category - WORKS
+        [HttpGet("GetItemsByCategory/{category}/{userId}")]
         
-        public IEnumerable<ItemModel> GetItemsByCategory(string category)
+        public IEnumerable<ItemModel> GetItemsByCategory(string category, int userId)
         {
-            return data.GetItemsByCategory(category);
+            return data.GetItemsByCategory(category, userId);
         }
 
-        // Sort by Season - Needs testing
-        [HttpPost("GetItemsBySeason/{season}")]
+        // Sort by Season - WORKS
+        [HttpGet("GetItemsBySeason/{season}/{userId}")]
 
-         public IEnumerable<ItemModel> GetItemsBySeason(string season){
-            return data.GetItemsBySeason(season);
+         public IEnumerable<ItemModel> GetItemsBySeason(string season, int userId){
+            return data.GetItemsBySeason(season, userId);
         }
-
-        //get item by iD
 
 
     }

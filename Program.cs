@@ -10,12 +10,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ItemService>();
 builder.Services.AddScoped<OutfitService>();
 
-// builder.Services.AddCors( options => {
-//     options.AddPolicy("CorsPolicy",
-//     builder => builder.AllowingAnyOrigin()
-//                     .AllowAnyHeader()
-//                     .AllowAnyMethod());
-// });
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -37,6 +32,8 @@ if (app.Environment.IsDevelopment())
 
 // app.UseCor("CorsPolicy");
 app.UseAuthorization();
+
+
 
 app.MapControllers();
 

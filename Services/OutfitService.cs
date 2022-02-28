@@ -16,7 +16,7 @@ namespace virtualClosetAPI.Services
             _context = dataFromContext;
         }
 
-        //Add - Needs testing
+        //Add - WORKS
         public bool AddOutfit(OutfitModel outfitToAdd)
         {
             _context.Add(outfitToAdd);

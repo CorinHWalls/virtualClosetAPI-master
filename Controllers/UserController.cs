@@ -44,6 +44,24 @@ namespace virtualClosetApi.controller
             return _data.GetAllUsers();
         }
 
+        //Get user by username - WORKS
+
+        [HttpGet("getUserByUsername")]
+
+        public UserModel GetUserByUsername(string Username)
+        {
+            return _data.GetUserByUsername(Username);
+        }
+
+        //get current user - WORKS
+
+        [HttpPost("getCurrentUser")]
+        
+        public IEnumerable<UserModel> GetCurrentUser(UserModel currentUser)
+        {
+            return _data.GetCurrentUser(currentUser);
+        }
+
     }
 
 }
