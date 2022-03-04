@@ -40,14 +40,14 @@ namespace virtualClosetAPI.Controllers
             return data.UpdateItemById(updatedItem);
         }
 
-        //Get items by userId - WORKS
+        //Get items by userId - WORKS & in use
         [HttpGet("GetItemsByUserId/{userId}")]
         public IEnumerable<ItemModel> GetItemsByUserId(int userId)
         {
             return data.GetItemsByUserId(userId);
         }
 
-        //Sort by Category - WORKS
+        //Sort by Category - WORKS and in use
         [HttpGet("GetItemsByCategory/{category}/{userId}")]
         
         public IEnumerable<ItemModel> GetItemsByCategory(string category, int userId)
@@ -60,6 +60,12 @@ namespace virtualClosetAPI.Controllers
 
          public IEnumerable<ItemModel> GetItemsBySeason(string season, int userId){
             return data.GetItemsBySeason(season, userId);
+        }
+
+        // Get specific item by id and UserId
+        [HttpGet("GetItemById/{id}/{userId}")]
+        public IEnumerable<ItemModel> GetItemsById(int id, int userId){
+            return data.GetItemsById(id, userId);
         }
 
 

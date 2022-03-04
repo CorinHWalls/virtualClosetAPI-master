@@ -53,6 +53,10 @@ namespace virtualClosetAPI.Services
         {
             return _context.ItemInfo.Where(item => item.Category == category && item.UserId == userId);
         }
+        // Get specific item by id and UserId
+        public IEnumerable<ItemModel> GetItemsById(int id, int userId){
+            return _context.ItemInfo.Where(item => item.Id == id && item.UserId == userId);
+        }
         //Get items by Season/UserId - WORKS
         public IEnumerable<ItemModel> GetItemsBySeason(string season, int userId)
         {
