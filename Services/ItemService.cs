@@ -42,6 +42,7 @@ namespace virtualClosetAPI.Services
 
         }
 
+
         // get / display all items by userId - WORKS
         public IEnumerable<ItemModel> GetItemsByUserId(int userId)
         {

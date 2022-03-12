@@ -14,9 +14,11 @@ namespace virtualClosetAPI.Models
         public string? Brand { get; set; }
         public string? Season { get; set; }
         public string? Category { get; set; }
+        public string? Image { get; set; }
+        public bool Favorite { get; set; }
 
-        // public string? Image { get; set; }
 
-         
+
+
     }
 }

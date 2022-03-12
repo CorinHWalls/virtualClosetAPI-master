@@ -68,6 +68,5 @@ namespace virtualClosetAPI.Controllers
             return data.GetItemsById(id, userId);
         }
 
-
     }
 }
