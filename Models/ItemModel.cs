@@ -16,6 +16,8 @@ namespace virtualClosetAPI.Models
         public string? Category { get; set; }
         public string? Image { get; set; }
         public bool Favorite { get; set; }
+        public bool Selected {get; set; }
+        public int OutfitId {get; set;}
 
 
 

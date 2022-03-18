@@ -41,12 +41,17 @@ namespace virtualClosetAPI.Services
             return _context.SaveChanges() != null;
 
         }
-
+    
 
         // get / display all items by userId - WORKS
         public IEnumerable<ItemModel> GetItemsByUserId(int userId)
         {
             return _context.ItemInfo.Where(item => item.UserId == userId);
+        }
+
+         public IEnumerable<ItemModel> GetFavorites(int userId, bool favorite){
+
+            return _context.ItemInfo.Where(item => item.UserId == userId && item.Favorite == favorite);
         }
 
         //Get items by category/userId - WORKS

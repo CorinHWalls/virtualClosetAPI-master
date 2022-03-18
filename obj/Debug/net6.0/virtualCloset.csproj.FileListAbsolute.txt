@@ -123,8 +123,3 @@ C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\obj\Debug
 C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\obj\Debug\net6.0\ref\virtualCloset.dll
 C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\obj\Debug\net6.0\virtualCloset.pdb
 C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\obj\Debug\net6.0\virtualCloset.genruntimeconfig.cache
-C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\bin\Debug\net6.0\publish\web.config
-C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\bin\Debug\net6.0\publish\appsettings.Development.json
-C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\bin\Debug\net6.0\publish\appsettings.json
-C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\bin\Debug\net6.0\publish\virtualCloset.deps.json
-C:\Users\Corin\Desktop\virtualClosetAPI-master\virtualClosetAPI-master\bin\Debug\net6.0\publish\virtualCloset.runtimeconfig.json

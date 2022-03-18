@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using virtualClosetApi.Services.Context;
 
@@ -10,9 +11,10 @@ using virtualClosetApi.Services.Context;
 namespace virtualCloset.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220315201235_updatedItemModel4")]
+    partial class updatedItemModel4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,9 +51,6 @@ namespace virtualCloset.Migrations
 
                     b.Property<string>("Season")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Selected")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
@@ -100,10 +99,13 @@ namespace virtualCloset.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Hash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Salt")

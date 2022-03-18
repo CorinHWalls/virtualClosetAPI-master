@@ -67,6 +67,12 @@ namespace virtualClosetAPI.Controllers
         public IEnumerable<ItemModel> GetItemsById(int id, int userId){
             return data.GetItemsById(id, userId);
         }
+        [HttpGet("GetFavorites/{userId}/{favorite}")]
+        public IEnumerable<ItemModel> GetFavorites(int userId, bool favorite){
+
+            return data.GetFavorites(userId, favorite);
+        }
+
 
     }
 }

@@ -44,7 +44,7 @@ namespace virtualClosetAPI.Controllers
 
 
         //Get Outfit by userId - Needs testing
-        [HttpPost("GetOutfitByUserId")]
+        [HttpPost("GetOutfitByUserId/{userId}")]
 
         public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
         {
