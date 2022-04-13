@@ -18,7 +18,7 @@ namespace virtualClosetAPI.Controllers
             data = dataFromService;
         }
 
-        //Add - Needs testing
+        //Add - WORKS
 
         [HttpPost("AddOutfit")]
 
@@ -29,13 +29,13 @@ namespace virtualClosetAPI.Controllers
 
         //Remove entire outfit - Needs testing
         [HttpPost("Remove")]
-         public bool RemoveOutfit(OutfitModel id)
+         public bool RemoveOutfit(string outfitName)
         {
-            return data.RemoveOutfit(id);
+            return data.RemoveOutfit(outfitName);
         }
 
         //Remove single item from Outfit - Needs testing
-        [HttpPost("RemoveItemFromOutfit")]
+        [HttpGet("RemoveItemFromOutfit/{userId}/{itemId}")]
 
          public bool RemoveItemFromOutfit(int userId, int itemId)
         {
@@ -44,7 +44,7 @@ namespace virtualClosetAPI.Controllers
 
 
         //Get Outfit by userId - Needs testing
-        [HttpPost("GetOutfitByUserId/{userId}")]
+        [HttpGet("GetOutfitByUserId/{userId}")]
 
         public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
         {

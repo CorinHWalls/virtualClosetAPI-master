@@ -11,12 +11,15 @@ namespace virtualClosetAPI.Models
         public int UserId { get; set; }
         public int ItemId { get; set; }
         public string? OutfitName { get; set; }
-        public string? OutfitOccasion { get; set; }
-        public string? OutfitSeason { get; set; }
-        // public string? Color { get; set; }
-        // public string? Size { get; set; }
-        // public string? Brand { get; set; }
-        // public string? Season { get; set; }
-        // public string? Category { get; set; }
+        public string? Color { get; set; }
+        public string? Size { get; set; }
+        public string? Brand { get; set; }
+        public string? Season { get; set; }
+        public string? Category { get; set; }
+        public string? Image { get; set; }
+        public bool Selected { get; set; }
+        public bool Favorite { get; set; }
+
+        public OutfitModel(){}
     }
 }

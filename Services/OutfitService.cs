@@ -25,14 +25,16 @@ namespace virtualClosetAPI.Services
         
         //Remove - Needs testing
 
-        public bool RemoveOutfit(OutfitModel outfit)
+        public bool RemoveOutfit(string outfitName)
         {
+            var outfit = _context.OutfitInfo.SingleOrDefault(outfit => outfit.OutfitName == outfitName);
+
            _context.Remove(outfit);
            //saves changes then returns true or false based on success
            return _context.SaveChanges() != null;
         }
         
-        //
+        
 
          public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
         {

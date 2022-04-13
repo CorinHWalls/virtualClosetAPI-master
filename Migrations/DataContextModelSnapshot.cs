@@ -44,9 +44,6 @@ namespace virtualCloset.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OutfitId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Season")
                         .HasColumnType("nvarchar(max)");
 
@@ -72,16 +69,34 @@ namespace virtualCloset.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Favorite")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ItemId")
                         .HasColumnType("int");
 
                     b.Property<string>("OutfitName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OutfitOccasion")
+                    b.Property<string>("Season")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OutfitSeason")
+                    b.Property<string>("Selected")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
