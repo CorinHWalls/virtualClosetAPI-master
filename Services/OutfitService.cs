@@ -16,33 +16,46 @@ namespace virtualClosetAPI.Services
             _context = dataFromContext;
         }
 
+        //check if outfitName Exists
+
+        public bool DoesOutfitExist(string? outfitName)
+        {
+            return _context.OutfitInfo.SingleOrDefault(outfit => outfit.OutfitName.ToLower() == outfitName.ToLower()) != null;
+        }
+
         //Add - WORKS
         public bool AddOutfit(OutfitModel outfitToAdd)
         {
-            _context.Add(outfitToAdd);
-            return _context.SaveChanges() != null;
+            var result = false;
+            if (!DoesOutfitExist(outfitToAdd.OutfitName))
+            {
+                _context.Add(outfitToAdd);
+                result = _context.SaveChanges() != null;
+
+            }
+            return result;
         }
-        
+
         //Remove - Needs testing
 
         public bool RemoveOutfit(string outfitName)
         {
             var outfit = _context.OutfitInfo.SingleOrDefault(outfit => outfit.OutfitName == outfitName);
 
-           _context.Remove(outfit);
-           //saves changes then returns true or false based on success
-           return _context.SaveChanges() != null;
+            _context.Remove(outfit);
+            //saves changes then returns true or false based on success
+            return _context.SaveChanges() != null;
         }
-        
-        
 
-         public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
+
+
+        public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
         {
             return _context.OutfitInfo.Where(outfit => outfit.UserId == userId);
         }
 
-         public bool RemoveItemFromOutfit(int userId, int itemId)
-        {      
+        public bool RemoveItemFromOutfit(int userId, int itemId)
+        {
             //find data first
             var foundItem = _context.OutfitInfo.Where(outfit => outfit.UserId == userId && outfit.ItemId == itemId);
 
@@ -50,6 +63,6 @@ namespace virtualClosetAPI.Services
             _context.Remove(foundItem);
             return _context.SaveChanges() != null;
         }
-        
+
     }
 }

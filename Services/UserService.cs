@@ -59,8 +59,7 @@ namespace virtualClosetApi.Services
                 newUser.Salt = hashedPassword.Salt;
                 newUser.Hash = hashedPassword.Hash;
                 newUser.Name = User.Name;
-                // newUser.FirstName = User.FirstName;
-
+    
                 _context.Add(newUser);
                 result = _context.SaveChanges() != 0;
 
