@@ -27,29 +27,36 @@ namespace virtualClosetAPI.Controllers
             return data.AddOutfit(outfitToAdd);
         }
 
-        //Remove entire outfit - Needs testing
-        [HttpPost("Remove")]
-         public bool RemoveOutfit(string outfitName)
+       //Remove single item from outfit - WORKS
+        [HttpPost("Remove/{id}")]
+         public bool RemoveItemFromOutfit(int id)
         {
-            return data.RemoveOutfit(outfitName);
+            return data.RemoveItemFromOutfit(id);
         }
 
-        //Remove single item from Outfit - Needs testing
-        [HttpGet("RemoveItemFromOutfit/{userId}/{itemId}")]
+          // Remove all items with same outfitname - WORKS
+        [HttpPost("RemoveOutfit/{userId}/{outfitName}")]
 
-         public bool RemoveItemFromOutfit(int userId, int itemId)
+         public bool RemoveOutfit(int userId, string? outfitName)
         {
-            return data.RemoveItemFromOutfit(userId, itemId);
+            return data.RemoveOutfit(userId, outfitName);
         }
 
 
-        //Get Outfit by userId - Needs testing
-        [HttpGet("GetOutfitByUserId/{userId}")]
+        //Get Outfit by userId - WORKS
+        [HttpGet("GetOutfitByUserId/{UserId}")]
 
-        public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
+        public IEnumerable<OutfitModel> GetOutfitByUserId(int UserId)
         {
-            return data.GetOutfitByUserId(userId);
+            return data.GetOutfitByUserId(UserId);
         }
+
+        //Get Outfits by userId & OutfitName - WORKS
+         [HttpGet("GetOutfits/{userId}/{outfitName}")]
+         public IEnumerable<OutfitModel> GetOutfits(int userId, string? outfitName)
+         {
+             return data.GetOutFits(userId,outfitName);
+         }
 
     
 

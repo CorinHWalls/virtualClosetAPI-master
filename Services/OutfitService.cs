@@ -36,11 +36,10 @@ namespace virtualClosetAPI.Services
             return result;
         }
 
-        //Remove - Needs testing
-
-        public bool RemoveOutfit(string outfitName)
+        //Remove single item from Outfit - WORKS
+        public bool RemoveItemFromOutfit(int id)
         {
-            var outfit = _context.OutfitInfo.SingleOrDefault(outfit => outfit.OutfitName == outfitName);
+            var outfit = _context.OutfitInfo.SingleOrDefault(outfit => outfit.Id == id);
 
             _context.Remove(outfit);
             //saves changes then returns true or false based on success
@@ -48,19 +47,29 @@ namespace virtualClosetAPI.Services
         }
 
 
-
-        public IEnumerable<OutfitModel> GetOutfitByUserId(int userId)
+        //Get all outfits by userId - WORKS
+        public IEnumerable<OutfitModel> GetOutfitByUserId(int UserId)
         {
-            return _context.OutfitInfo.Where(outfit => outfit.UserId == userId);
+            return _context.OutfitInfo.Where(outfit => outfit.UserId == UserId);
+        }
+        //Get Outfits by userId & OutfitName - WORKS
+        public IEnumerable<OutfitModel> GetOutFits(int UserId, string? outfitName)
+        {
+            return _context.OutfitInfo.Where(fit => fit.UserId == UserId && fit.OutfitName == outfitName);
         }
 
-        public bool RemoveItemFromOutfit(int userId, int itemId)
+        // Remove all items with same outfitname - WORKS
+        public bool RemoveOutfit(int userId, string? outfitName)
         {
             //find data first
-            var foundItem = _context.OutfitInfo.Where(outfit => outfit.UserId == userId && outfit.ItemId == itemId);
+            var foundItem = _context.OutfitInfo.Where(outfit => outfit.UserId == userId && outfit.OutfitName == outfitName);
 
-            //remove found data
-            _context.Remove(foundItem);
+            foreach (Object i in foundItem)
+            {
+                //remove found data
+                _context.Remove(i);
+
+            }
             return _context.SaveChanges() != null;
         }
 
